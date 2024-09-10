@@ -4,9 +4,12 @@
     ViewData["Title"] = "Error";
 }
 
+<!-- Main error heading -->
 <h1 class="text-danger">Error.</h1>
+<!-- Subheading for the error page -->
 <h2 class="text-danger">An error occurred while processing your request.</h2>
 
+<!-- Conditionally display the request ID if ShowRequestId is true -->
 @if (Model.ShowRequestId)
 {
     <p>
@@ -14,6 +17,7 @@
     </p>
 }
 
+<!-- Section about Development Mode -->
 <h3>Development Mode</h3>
 <p>
     Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.

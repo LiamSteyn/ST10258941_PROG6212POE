@@ -4,13 +4,18 @@
     ViewData["Title"] = "Manage Claims";
 }
 
+<!-- Container for the manage claims page -->
 <div class="container mt-4">
+    <!-- Page heading -->
     <h2>Manage Claims</h2>
+    <!-- Description of the page functionality -->
     <p>Below is a list of all submitted claims. You can approve, reject, or add comments to the claims:</p>
 
+    <!-- Table displaying the list of claims -->
     <table class="table table-striped mt-4">
         <thead>
             <tr>
+                <!-- Table headers -->
                 <th>Claim ID</th>
                 <th>Lecturer ID</th>
                 <th>Hours Worked</th>
@@ -22,22 +27,29 @@
             </tr>
         </thead>
         <tbody>
+            <!-- Loop through each claim in the model and display in table rows -->
             @foreach (var claim in Model.Claims)
             {
                 <tr>
+                    <!-- Claim details in table cells -->
                     <td>@claim.ClaimId</td>
                     <td>@claim.LecturerId</td>
                     <td>@claim.HoursWorked</td>
-                    <td>@claim.HourlyRate.ToString("C")</td>
-                    <td>@claim.TotalAmount.ToString("C")</td>
+                    <td>@claim.HourlyRate.ToString("C")</td> <!-- Formatting as currency -->
+                    <td>@claim.TotalAmount.ToString("C")</td> <!-- Formatting as currency -->
                     <td>@claim.Status</td>
                     <td>@claim.Comments</td>
                     <td>
+                        <!-- Form for actions on each claim -->
                         <form method="post">
+                            <!-- Hidden field to pass the Claim ID -->
                             <input type="hidden" name="ClaimId" value="@claim.ClaimId" />
+                            <!-- Buttons for approving and rejecting claims -->
                             <button type="submit" class="btn btn-success" name="action" value="approve">Approve</button>
                             <button type="submit" class="btn btn-danger" name="action" value="reject">Reject</button>
+                            <!-- Input field for adding comments -->
                             <input type="text" name="comment" placeholder="Add comment..." class="form-control mt-1" />
+                            <!-- Button for submitting comments -->
                             <button type="submit" class="btn btn-primary mt-1" name="action" value="comment">Submit Comment</button>
                         </form>
                     </td>
