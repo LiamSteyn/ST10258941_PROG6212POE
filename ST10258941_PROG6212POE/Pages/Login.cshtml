@@ -1,0 +1,33 @@
+﻿@page
+@model ST10258941_PROG6212POE.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Login</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="Username" placeholder="Enter username" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="Password" placeholder="Enter password" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Login</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#">Forgot your password?</a> | <a href="#">Create an account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@page
+@model ST10258941_PROG6212POE.Pages.ManageClaimsModel
+@{
+    ViewData["Title"] = "Manage Claims";
+}
+
+<div class="container mt-4">
+    <h2>Manage Claims</h2>
+    <p>Below is a list of all submitted claims. You can approve, reject, or add comments to the claims:</p>
+
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Claim ID</th>
+                <th>Lecturer ID</th>
+                <th>Hours Worked</th>
+                <th>Hourly Rate</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Comments</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model.Claims)
+            {
+                <tr>
+                    <td>@claim.ClaimId</td>
+                    <td>@claim.LecturerId</td>
+                    <td>@claim.HoursWorked</td>
+                    <td>@claim.HourlyRate.ToString("C")</td>
+                    <td>@claim.TotalAmount.ToString("C")</td>
+                    <td>@claim.Status</td>
+                    <td>@claim.Comments</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="ClaimId" value="@claim.ClaimId" />
+                            <button type="submit" class="btn btn-success" name="action" value="approve">Approve</button>
+                            <button type="submit" class="btn btn-danger" name="action" value="reject">Reject</button>
+                            <input type="text" name="comment" placeholder="Add comment..." class="form-control mt-1" />
+                            <button type="submit" class="btn btn-primary mt-1" name="action" value="comment">Submit Comment</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,29 @@
+﻿@page
+@model ST10258941_PROG6212POE.Pages.SubmitClaimModel
+@{
+    ViewData["Title"] = "Submit Claim";
+}
+
+
+<div class="container mt-4">
+    <h2>Submit Monthly Claim</h2>
+    <form asp-action="SubmitClaim" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="ClaimViewModel.LecturerId">Lecturer ID</label>
+            <input type="number" class="form-control" asp-for="ClaimViewModel.LecturerId" required />
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimViewModel.HoursWorked">Hours Worked</label>
+            <input type="number" class="form-control" asp-for="ClaimViewModel.HoursWorked" required />
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimViewModel.HourlyRate">Hourly Rate</label>
+            <input type="number" class="form-control" asp-for="ClaimViewModel.HourlyRate" step="0.01" required />
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimViewModel.SupportingDocument">Upload Supporting Document</label>
+            <input type="file" class="form-control" asp-for="ClaimViewModel.SupportingDocument" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-padding-top btn-margin-top">Submit Claim</button>
+    </form>
+</div>
