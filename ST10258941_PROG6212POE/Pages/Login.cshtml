@@ -4,26 +4,37 @@
     ViewData["Title"] = "Login";
 }
 
+<!-- Container for centering and spacing the login card -->
 <div class="container mt-5">
+    <!-- Row to center the card horizontally -->
     <div class="row justify-content-center">
+        <!-- Column to define the width of the card -->
         <div class="col-md-6">
+            <!-- Card component for the login form -->
             <div class="card">
+                <!-- Card header containing the title -->
                 <div class="card-header">
                     <h3 class="text-center">Login</h3>
                 </div>
+                <!-- Card body containing the login form -->
                 <div class="card-body">
+                    <!-- Form with POST method for login submission -->
                     <form method="post">
+                        <!-- Username input field -->
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="Username" placeholder="Enter username" required />
                         </div>
+                        <!-- Password input field -->
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="Password" placeholder="Enter password" required />
                         </div>
+                        <!-- Submit button for the form -->
                         <button type="submit" class="btn btn-primary mt-3">Login</button>
                     </form>
                 </div>
+                <!-- Card footer with links for password recovery and account creation -->
                 <div class="card-footer text-center">
                     <a href="#">Forgot your password?</a> | <a href="#">Create an account</a>
                 </div>
