@@ -2,6 +2,7 @@
 
 namespace CMCS.Models
 {
+    //Login Currently De-Activated
     public class LoginModel
     {
         [Required]
