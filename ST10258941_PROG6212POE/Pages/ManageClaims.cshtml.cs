@@ -28,7 +28,7 @@ namespace ST10258941_PROG6212POE.Pages
                 LecturerId = c.LecturerId,
                 HoursWorked = c.HoursWorked,
                 HourlyRate = c.HourlyRate,
-                TotalAmount = c.HoursWorked * c.HourlyRate,
+                TotalAmount = c.HoursWorked * c.HourlyRate, // Calculate the total amount owed according to the claim data
                 Status = c.Status ?? "Pending",
                 Comments = c.Comments ?? string.Empty,
                 AdditionalNotes = c.AdditionalNotes,
