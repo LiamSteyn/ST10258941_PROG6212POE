@@ -24,8 +24,9 @@ namespace ST10258941_PROG6212POE.Pages
                 HoursWorked = claim.HoursWorked,
                 HourlyRate = claim.HourlyRate,
                 TotalAmount = claim.HoursWorked * claim.HourlyRate,
-                Status = "Pending", // For now, default status is set to "Pending"
-                Comments = "Awaiting approval"
+                Status = claim.Status ?? "Pending",
+                Comments = claim.Comments ?? string.Empty,
+                AdditionalNotes = claim.AdditionalNotes
             }).ToList();
 
             if (Claims.Count == 0)

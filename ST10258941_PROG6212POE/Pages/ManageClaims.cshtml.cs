@@ -30,7 +30,9 @@ namespace ST10258941_PROG6212POE.Pages
                 HourlyRate = c.HourlyRate,
                 TotalAmount = c.HoursWorked * c.HourlyRate,
                 Status = c.Status ?? "Pending",
-                Comments = c.Comments ?? string.Empty
+                Comments = c.Comments ?? string.Empty,
+                AdditionalNotes = c.AdditionalNotes,
+                SupportingDocumentPath = c.SupportingDocumentPath
             }).ToList();
         }
 

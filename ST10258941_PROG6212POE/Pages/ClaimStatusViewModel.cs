@@ -41,5 +41,7 @@
         /// This can include reasons for approval or rejection, or other relevant notes.
         /// </summary>
         public string Comments { get; set; } // Optional comments from the approver
+
+        public string AdditionalNotes { get; set; }
     }
 }

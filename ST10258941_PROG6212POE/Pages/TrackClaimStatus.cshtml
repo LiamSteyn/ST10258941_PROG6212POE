@@ -20,6 +20,7 @@
                 <th>Hours Worked</th>
                 <th>Hourly Rate</th>
                 <th>Total Amount</th>
+                <th>Additional Notes</th>
                 <th>Status</th>
                 <th>Comments</th>
             </tr>
@@ -34,6 +35,7 @@
                     <td>@claim.HoursWorked</td>
                     <td>@claim.HourlyRate.ToString("C")</td> <!-- Formatting as currency -->
                     <td>@claim.TotalAmount.ToString("C")</td> <!-- Formatting as currency -->
+                    <td>@claim.AdditionalNotes</td>
                     <td>@claim.Status</td>
                     <td>@claim.Comments</td>
                 </tr>

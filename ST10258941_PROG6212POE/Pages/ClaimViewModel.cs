@@ -25,6 +25,7 @@ namespace ST10258941_PROG6212POE.Pages
         // Optional path field, no validation required
         public string? SupportingDocumentPath { get; set; }
 
+        public string? AdditionalNotes { get; set; } // New property for additional notes
         public string? Status { get; set; } // Current status of the claim (e.g., Pending, Approved, Rejected)
         public string? Comments { get; set; } // Any comments related to the claim
     }

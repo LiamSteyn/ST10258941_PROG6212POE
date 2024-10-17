@@ -9,5 +9,9 @@
         public decimal TotalAmount { get; set; }
         public string Status { get; set; } // Pending, Approved, Rejected
         public string Comments { get; set; } // Optional comments from the approver
+
+        public string AdditionalNotes { get; set; }
+
+        public string SupportingDocumentPath { get; set; }
     }
 }
