@@ -4,7 +4,7 @@
 
 ## Overview
 
-The Claim Management System is a web application developed using ASP.NET Core Razor Pages, designed to facilitate the submission, management, and tracking of claims for a charity organization. The application allows users to submit claims with supporting documents, manage their statuses, and view their claim history.
+The Claim Management System is a web application developed using ASP.NET Core Razor Pages, designed to facilitate the submission, management, and tracking of claims for lecturers. The application allows users to submit claims with supporting documents, manage their statuses, and view their claim history.
 
 ## Features
 
