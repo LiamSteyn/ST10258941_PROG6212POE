@@ -36,6 +36,7 @@ namespace ST10258941_PROG6212POE.Pages
             }).ToList();
         }
 
+        // Update the claims status
         public IActionResult OnPost()
         {
             // Find the claim by ClaimId
