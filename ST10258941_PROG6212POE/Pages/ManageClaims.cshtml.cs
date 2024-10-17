@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ST10258941_PROG6212POE.Pages
 {
@@ -19,57 +21,40 @@ namespace ST10258941_PROG6212POE.Pages
 
         public void OnGet()
         {
-            // Mock data for demonstration purposes
-            Claims = new List<ManageClaimViewModel>
+            // Load claims from the in-memory storage
+            Claims = ClaimStorage.GetClaims().Select(c => new ManageClaimViewModel
             {
-                new ManageClaimViewModel
-                {
-                    ClaimId = 1,
-                    LecturerId = 101,
-                    HoursWorked = 20,
-                    HourlyRate = 50.00m,
-                    TotalAmount = 1000.00m,
-                    Status = "Pending",
-                    Comments = ""
-                },
-                new ManageClaimViewModel
-                {
-                    ClaimId = 2,
-                    LecturerId = 101,
-                    HoursWorked = 15,
-                    HourlyRate = 55.00m,
-                    TotalAmount = 825.00m,
-                    Status = "Pending",
-                    Comments = ""
-                }
-            };
+                ClaimId = c.ClaimId,
+                LecturerId = c.LecturerId,
+                HoursWorked = c.HoursWorked,
+                HourlyRate = c.HourlyRate,
+                TotalAmount = c.HoursWorked * c.HourlyRate,
+                Status = c.Status ?? "Pending",
+                Comments = c.Comments ?? string.Empty
+            }).ToList();
         }
 
         public IActionResult OnPost()
         {
-            // Perform the action based on the button clicked (approve, reject, or comment)
-            foreach (var claim in Claims)
+            // Find the claim by ClaimId
+            var claim = ClaimStorage.GetClaims().FirstOrDefault(c => c.ClaimId == ClaimId);
+            if (claim != null)
             {
-                if (claim.ClaimId == ClaimId)
+                if (Action == "approve")
                 {
-                    if (Action == "approve")
-                    {
-                        claim.Status = "Approved";
-                    }
-                    else if (Action == "reject")
-                    {
-                        claim.Status = "Rejected";
-                    }
-                    else if (Action == "comment")
-                    {
-                        claim.Comments = Comment;
-                    }
-                    break;
+                    claim.Status = "Approved";
+                }
+                else if (Action == "reject")
+                {
+                    claim.Status = "Rejected";
+                }
+                else if (Action == "comment")
+                {
+                    claim.Comments = Comment;
                 }
             }
 
-            // Normally, you would save changes to the database here
-
+            // Return to the page after processing
             return RedirectToPage();
         }
     }

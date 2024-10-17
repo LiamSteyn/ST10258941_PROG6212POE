@@ -1,15 +1,31 @@
-﻿namespace ST10258941_PROG6212POE.Pages
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+
+namespace ST10258941_PROG6212POE.Pages
+
 {
-        public class ClaimViewModel
-        {
-            public int LecturerId { get; set; }
+    public class ClaimViewModel
+    {
+        public int ClaimId { get; set; }
 
-            public int HoursWorked { get; set; }
+        [Required(ErrorMessage = "Lecturer ID is required")]
+        public int LecturerId { get; set; }
 
-            public decimal HourlyRate { get; set; }
+        [Required(ErrorMessage = "Hours worked is required")]
+        [Range(1, int.MaxValue, ErrorMessage = "Hours worked must be greater than 0")]
+        public int HoursWorked { get; set; }
 
-            public string SupportingDocumentPath { get; set; } // Path where the document will be saved
+        [Required(ErrorMessage = "Hourly rate is required")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Hourly rate must be greater than 0")]
+        public decimal HourlyRate { get; set; }
 
-            public IFormFile SupportingDocument { get; set; } // To handle file upload in the form
-        }
+        // No longer required
+        public IFormFile? SupportingDocument { get; set; }
+
+        // Optional path field, no validation required
+        public string? SupportingDocumentPath { get; set; }
+
+        public string? Status { get; set; } // Current status of the claim (e.g., Pending, Approved, Rejected)
+        public string? Comments { get; set; } // Any comments related to the claim
+    }
 }

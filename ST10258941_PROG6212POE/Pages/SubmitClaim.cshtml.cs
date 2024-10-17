@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace ST10258941_PROG6212POE.Pages
 {
@@ -15,27 +18,34 @@ namespace ST10258941_PROG6212POE.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            // Set a placeholder for SupportingDocumentPath before validation
+            if (ClaimViewModel.SupportingDocumentPath == null)
+            {
+                ClaimViewModel.SupportingDocumentPath = "Coming Soon";
+            }
+
+            // Validate the model state
             if (!ModelState.IsValid)
             {
+                // Log validation errors to help troubleshoot
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"Validation error: {error.ErrorMessage}");
+                }
+                Console.WriteLine("Model is invalid.");
                 return Page();
             }
 
-            // Process file upload
-            if (ClaimViewModel.SupportingDocument != null)
-            {
-                var filePath = Path.Combine("wwwroot/uploads", ClaimViewModel.SupportingDocument.FileName);
+            // Log the submitted data to the console for debugging
+            Console.WriteLine($"Submitted Data: LecturerId: {ClaimViewModel.LecturerId}, HoursWorked: {ClaimViewModel.HoursWorked}, HourlyRate: {ClaimViewModel.HourlyRate}, SupportingDocumentPath: {ClaimViewModel.SupportingDocumentPath}");
 
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await ClaimViewModel.SupportingDocument.CopyToAsync(stream);
-                }
+            // Add the claim to the in-memory storage
+            ClaimStorage.AddClaim(ClaimViewModel);
 
-                ClaimViewModel.SupportingDocumentPath = filePath;
-            }
+            // Log success message
+            Console.WriteLine("Claim successfully added.");
 
-            // Add logic to save claim details to the database or perform further actions
-
-            // Redirect to a confirmation or summary page
+            // Redirect to the confirmation or summary page (e.g., Index page)
             return RedirectToPage("/Index");
         }
     }
