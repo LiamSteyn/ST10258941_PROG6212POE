@@ -45,6 +45,20 @@ namespace ST10258941_PROG6212POE.Pages
             // Allowed file extensions
             var allowedExtensions = new[] { ".pdf", ".docx" };
 
+            // Calculate total amount
+            var totalAmount = ClaimViewModel.HoursWorked * ClaimViewModel.HourlyRate;
+
+            // Check for auto-rejection
+            if (totalAmount > 1_000_000)
+            {
+                ClaimViewModel.Status = "Rejected";
+                ClaimViewModel.Comments = "Claim exceeds the maximum allowable amount.";
+            }
+            else
+            {
+                ClaimViewModel.Status = "Pending";
+            }
+
             // Process file upload
             if (ClaimViewModel.SupportingDocument != null && ClaimViewModel.SupportingDocument.Length > 0)
             {
