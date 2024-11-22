@@ -43,7 +43,7 @@ namespace ST10258941_PROG6212POE.Pages
             const long maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 
             // Allowed file extensions
-            var allowedExtensions = new[] { ".pdf", ".docx" };
+            var allowedExtensions = new[] { ".pdf", ".docx", ".xlsx"};
 
             // Calculate total amount
             var totalAmount = ClaimViewModel.HoursWorked * ClaimViewModel.HourlyRate;
