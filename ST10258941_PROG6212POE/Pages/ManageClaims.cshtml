@@ -11,6 +11,11 @@
     <!-- Description of the page functionality -->
     <p>Below is a list of all submitted claims. You can approve, reject, or add comments to the claims:</p>
 
+    <!-- Add a button to generate the PDF report -->
+    <form method="post" asp-page-handler="GeneratePdf">
+        <button type="submit" class="btn btn-primary mb-3">Download Approved Claims Report (PDF)</button>
+    </form>
+
     <!-- Table displaying the list of claims -->
     <table class="table table-striped mt-4">
         <thead>
