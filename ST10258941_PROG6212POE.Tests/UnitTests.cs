@@ -24,6 +24,8 @@ namespace ST10258941_PROG6212POE.Tests
             Assert.IsTrue(isValid);
         }
 
+
+        // Checks if an error comes up if hours if negative
         [TestMethod]
         public void ClaimViewModel_InvalidHoursWorked_ShouldBeInvalid()
         {
@@ -50,6 +52,7 @@ namespace ST10258941_PROG6212POE.Tests
         }
     }
 
+    // Checks if the valid claim goes through
     [TestClass]
     public class ManageClaimViewModelTests
     {
