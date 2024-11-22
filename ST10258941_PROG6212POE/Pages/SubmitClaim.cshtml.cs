@@ -74,9 +74,9 @@ namespace ST10258941_PROG6212POE.Pages
                 var fileExtension = Path.GetExtension(ClaimViewModel.SupportingDocument.FileName).ToLowerInvariant();
                 if (!allowedExtensions.Contains(fileExtension))
                 {
-                    ModelState.AddModelError("SupportingDocument", "Only PDF and DOCX files are allowed.");
-                    Console.WriteLine("Validation error: Invalid file type. Only PDF and DOCX files are allowed.");
-                    ErrorMessage = "Only PDF and DOCX files are allowed.";
+                    ModelState.AddModelError("SupportingDocument", "Only PDF, DOCX and XLSX files are allowed.");
+                    Console.WriteLine("Validation error: Invalid file type. Only PDF, DOCX and XLSX files are allowed.");
+                    ErrorMessage = "Only PDF, DOCX and XLSX files are allowed.";
                     return Page(); // Return to the page to display validation error
                 }
 
