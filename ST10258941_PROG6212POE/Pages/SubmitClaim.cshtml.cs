@@ -1,8 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace ST10258941_PROG6212POE.Pages
 {
@@ -15,7 +12,7 @@ namespace ST10258941_PROG6212POE.Pages
 
         public void OnGet()
         {
-            // Initialization logic if needed
+            // No Initialization logic needed
         }
 
         public async Task<IActionResult> OnPostAsync()

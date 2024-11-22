@@ -2,9 +2,6 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
 using Document = iTextSharp.text.Document;
 
 namespace ST10258941_PROG6212POE.Pages
